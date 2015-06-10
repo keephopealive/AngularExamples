@@ -1,9 +1,45 @@
-<html>
+<html ng-app="myApp">
 	<head>
-		
-		
+		<script src="Libraries/Angular/angular.js"></script>
+		<script>
+			var app = angular.module("myApp", []);
+			
+			app.controller("MainController", function(){
+				// 1
+				this.product = {
+					name: 'iPhone',
+					price: 499.99
+				}
+				
+				// 2
+				this.products = [
+					{
+						name: 'iPhone 6',
+						price: 599.99
+					},
+					{
+						name: 'iPhone 7',
+						price: 699.99
+					}
+				]
+				
+				
+			})
+		</script>
 	</head>
-	<body>
+	<body ng-controller="MainController as main">
+		<!-- 1 -->
+		<h1>Product</h1>
+		<h3 ng-bind="main.product.name"></h3>
+		<h3 ng-bind="main.product.price | currency"></h3>
+		
+		<!-- 2 -->
+		<h1>Product(s)</h1>
+		<div ng-repeat="product in main.products">
+			<h3 ng-bind="product.name"></h3>
+			<h3 ng-bind="product.price | currency"></h3>
+		</div>
+		
 		
 	</body>
 </html>
