@@ -1,45 +1,25 @@
 <html ng-app="myApp">
-	<head>
-		<script src="Libraries/Angular/angular.js"></script>
-		<script>
-			var app = angular.module("myApp", []);
-			
-			app.controller("MainController", function(){
-				// 1
-				this.product = {
-					name: 'iPhone',
-					price: 499.99
-				}
-				
-				// 2
-				this.products = [
-					{
-						name: 'iPhone 6',
-						price: 599.99
-					},
-					{
-						name: 'iPhone 7',
-						price: 699.99
-					}
-				]
-				
-				
-			})
-		</script>
-	</head>
-	<body ng-controller="MainController as main">
-		<!-- 1 -->
-		<h1>Product</h1>
-		<h3 ng-bind="main.product.name"></h3>
-		<h3 ng-bind="main.product.price | currency"></h3>
-		
-		<!-- 2 -->
-		<h1>Product(s)</h1>
-		<div ng-repeat="product in main.products">
-			<h3 ng-bind="product.name"></h3>
-			<h3 ng-bind="product.price | currency"></h3>
-		</div>
-		
-		
-	</body>
+<head>
+	<script src="lib/jquery-1.9.1.js"></script>
+    <script src="lib/jquery-ui.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+	<script src="js/modules.js"></script>
+	<script src="js/controllers.js"></script>	
+	<script src="js/routes.js"></script>	
+</head>
+<body>
+	<div ng-controller="MainController as main">
+		<nav>
+			<a href="#/home">Home</a>	
+			<a href="#/controllers">Controllers</a>	
+		</nav>
+		<h3>Message from a partial: <span ng-bind="main.message"></span></h3>
+		<hr>
+		<hr>
+		<div ng-view></div>
+		<hr>
+		<hr>
+	</div>
+</body>
 </html>

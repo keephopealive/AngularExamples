@@ -1,0 +1,25 @@
+<div ng-controller="ControllersController as controllers">
+	<h1>Controllers</h1>
+	<h2>Partial: Controllers</h2>
+	<h2>Controller: ControllersController</h2>	
+
+	<hr>
+
+	<h1>Product</h1>
+	<h3 ng-bind="controllers.product.name"></h3>
+	<h3 ng-bind="controllers.product.price | currency"></h3>
+	
+	<hr>
+
+	<h1>Product(s)</h1>
+	<div ng-repeat="product in controllers.products">
+		<h3 ng-bind="product.name"></h3>
+		<h3 ng-bind="product.price | currency"></h3>
+	</div>
+
+	<hr>
+	
+	<button ng-click="controllers.callMainController()">Call MainController</button>
+
+	
+</div>
